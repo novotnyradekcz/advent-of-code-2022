@@ -1,9 +1,6 @@
 with open('4/input.txt') as inputFile:
     lines = inputFile.readlines()
 
-priorities = '-abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-total = 0
-
 # part one:
 containedPairs = 0
 for line in lines:
