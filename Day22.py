@@ -70,3 +70,17 @@ while i < len(myPath):
 print(1000 * (currentPosition[0] + 1) + 4 * (currentPosition[1] + 1) + facing)
 
 # part two
+facing = 0  # facing right
+i = 0
+while i < len(myPath):
+    steps = ''
+    if myPath[i] == 'R':
+        facing = (facing + 1) % 4
+        i += 1
+    elif myPath[i] == 'L':
+        facing = (facing - 1) % 4
+        i += 1
+    else:
+        while i < len(myPath) and myPath[i].isnumeric():
+            steps += myPath[i]
+            i += 1
