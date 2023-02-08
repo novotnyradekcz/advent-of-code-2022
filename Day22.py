@@ -70,6 +70,10 @@ while i < len(myPath):
 print(1000 * (currentPosition[0] + 1) + 4 * (currentPosition[1] + 1) + facing)
 
 # part two
+currentPosition = [0, 0]
+while mapLines[0][currentPosition[1]] == ' ':
+    currentPosition[1] += 1
+
 facing = 0  # facing right
 i = 0
 while i < len(myPath):
@@ -84,3 +88,6 @@ while i < len(myPath):
         while i < len(myPath) and myPath[i].isnumeric():
             steps += myPath[i]
             i += 1
+        for j in range(int(steps)):
+            k = 1
+            if facing == 0:
