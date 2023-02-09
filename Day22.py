@@ -91,3 +91,40 @@ while i < len(myPath):
         for j in range(int(steps)):
             k = 1
             if facing == 0:
+                if mapLines[currentPosition[0]][(currentPosition[1] + 1) % len(mapLines[currentPosition[0]])] == ' ':
+                    while mapLines[currentPosition[0]][(currentPosition[1] + k) % len(mapLines[currentPosition[0]])] == ' ':
+                        k += 1
+                    if mapLines[currentPosition[0]][(currentPosition[1] + k) % len(mapLines[currentPosition[0]])] == '.':
+                        currentPosition[1] = (currentPosition[1] + k) % len(mapLines[currentPosition[0]])
+                        continue
+                if mapLines[currentPosition[0]][(currentPosition[1] + 1) % len(mapLines[currentPosition[0]])] == '.':
+                    currentPosition[1] = (currentPosition[1] + 1) % len(mapLines[currentPosition[0]])
+            if facing == 1:
+                if mapLines[(currentPosition[0] + 1) % len(mapLines)][currentPosition[1]] == ' ':
+                    while mapLines[(currentPosition[0] + k) % len(mapLines)][currentPosition[1]] == ' ':
+                        k += 1
+                    if mapLines[(currentPosition[0] + k) % len(mapLines)][currentPosition[1]] == '.':
+                        currentPosition[0] = (currentPosition[0] + k) % len(mapLines)
+                        continue
+                if mapLines[(currentPosition[0] + 1) % len(mapLines)][currentPosition[1]] == '.':
+                    currentPosition[0] = (currentPosition[0] + 1) % len(mapLines)
+            if facing == 2:
+                if mapLines[currentPosition[0]][(currentPosition[1] - 1) % len(mapLines[currentPosition[0]])] == ' ':
+                    while mapLines[currentPosition[0]][(currentPosition[1] - k) % len(mapLines[currentPosition[0]])] == ' ':
+                        k += 1
+                    if mapLines[currentPosition[0]][(currentPosition[1] - k) % len(mapLines[currentPosition[0]])] == '.':
+                        currentPosition[1] = (currentPosition[1] - k) % len(mapLines[currentPosition[0]])
+                        continue
+                if mapLines[currentPosition[0]][(currentPosition[1] - 1) % len(mapLines[currentPosition[0]])] == '.':
+                    currentPosition[1] = (currentPosition[1] - 1) % len(mapLines[currentPosition[0]])
+            if facing == 3:
+                if mapLines[(currentPosition[0] - 1) % len(mapLines)][currentPosition[1]] == ' ':
+                    while mapLines[(currentPosition[0] - k) % len(mapLines)][currentPosition[1]] == ' ':
+                        k += 1
+                    if mapLines[(currentPosition[0] - k) % len(mapLines)][currentPosition[1]] == '.':
+                        currentPosition[0] = (currentPosition[0] - k) % len(mapLines)
+                        continue
+                if mapLines[(currentPosition[0] - 1) % len(mapLines)][currentPosition[1]] == '.':
+                    currentPosition[0] = (currentPosition[0] - 1) % len(mapLines)
+
+print(1000 * (currentPosition[0] + 1) + 4 * (currentPosition[1] + 1) + facing)
